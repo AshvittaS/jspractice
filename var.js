@@ -5,3 +5,7 @@ alert(h);
 alert("the name is "+k + n);
 console.log(h);
 console.log(h + k);
+let age=45;
+let isage="True";
+let trophy=null;
+trophy="l90@";

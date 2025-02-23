@@ -1,6 +1,6 @@
-function greet()
+function greet(name)
 {
-    let msg="Hello World";
+    let msg="Hello"+name+" World";
     console.log(msg)
 }
-greet()
+greet("suresh")

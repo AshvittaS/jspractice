@@ -1,23 +1,25 @@
-function randomise(n1){
+let choice;
+function RandomiseNumber(n){
     const random=Math.random();
-    n=0
     if(random>=0&&random<1/3) 
     {
-        n=1;
-        console.log("Rock");
+
+        choice="Rock";
     }
     else if(random>=1/3&&random<2/3){
-        n=2;
-        console.log("Paper");
+        choice="Paper";
     }
     else if(random>=2/3&&random<1){
-        n=3;
-        console.log("Scissors");
+
+        choice="Scissors";
     }
-   if (n1 == n) {
-     alert("Draw");
-   } else if (n1 == 1 && n == 2) alert("Lose");
-   else if (n1 == 2 && n == 3) alert("Lose");
-   else if (n1 == 3 && n == 1) alert("Lose");
-   else alert("You win");
+   if (choice == n) {
+     alert(`Draw You choose ${n} : Computer Choose ${choice}`);
+   } else if (choice == "Rock" && n == "Scissors")
+     alert(`You lose.You choose ${n} : Computer Choose ${choice}`);
+   else if (choice == "Paper" && n == "Rock")
+     alert(`You lose.You choose ${n} : Computer Choose ${choice}`);
+   else if (choice == "Scissors" && n == "Paper")
+     alert(`You lose.You choose ${n} : Computer Choose ${choice}`);
+   else alert(`You win.You choose ${n} : Computer Choose ${choice}`);
 }

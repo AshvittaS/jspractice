@@ -1,5 +1,8 @@
-let choice;
-function RandomiseNumber(n){
+const score={
+  win:0,lose:0,ties:0
+}
+function RandomiseNumber(){
+  let choice;
     const random=Math.random();
     if(random>=0&&random<1/3) 
     {
@@ -13,13 +16,50 @@ function RandomiseNumber(n){
 
         choice="Scissors";
     }
-   if (choice == n) {
-     alert(`Draw You choose ${n} : Computer Choose ${choice}`);
-   } else if (choice == "Rock" && n == "Scissors")
-     alert(`You lose.You choose ${n} : Computer Choose ${choice}`);
-   else if (choice == "Paper" && n == "Rock")
-     alert(`You lose.You choose ${n} : Computer Choose ${choice}`);
-   else if (choice == "Scissors" && n == "Paper")
-     alert(`You lose.You choose ${n} : Computer Choose ${choice}`);
-   else alert(`You win.You choose ${n} : Computer Choose ${choice}`);
+    return choice;
+  }
+  function player(playerMove){
+    const computerMove=RandomiseNumber();
+    let result;
+    if (playerMove == "Rock") {
+      if (computerMove == "Rock") {
+        result = "Tie";
+      } else if (computerMove == "Scissors") {
+        result = "Win";
+      } else if (computerMove == "Paper") {
+        result = "Lose";
+      }
+    } else if (playerMove == "Paper") {
+      if (computerMove == "Rock") {
+        result = "Win";
+      } else if (computerMove == "Scissors") {
+        result = "Lose";
+      } else if (computerMove == "Paper") {
+        result = "Tie";
+      }
+    } else if (playerMove == "Scissors") {
+      if (computerMove == "Rock") {
+        result = "Lose";
+      } else if (computerMove == "Scissors") {
+        result = "Tie";
+      } else if (computerMove == "Paper") {
+        result = "Win";
+      }
+    }
+    if(result=='Win'){
+      score.win+=1;
+    }
+    else if(result=='Lose'){
+      score.lose+=1;
+    }
+    else if(result=='Tie'){
+      score.ties+=1;
+    }
+    alert(`
+You pick:${playerMove}
+Computer pick :${computerMove}
+Result:${result}
+Win :${score.win}
+Lose :${score.lose}
+Tie :${score.ties}`);
 }

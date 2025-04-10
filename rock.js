@@ -1,5 +1,23 @@
-const score={
-  win:0,lose:0,ties:0
+let score=JSON.parse(localStorage.getItem('score'));
+if(score==null){
+  score = {
+    win: 0,
+    lose: 0,
+    ties: 0,
+  };
+}
+/*there are other method like using || , !*/
+//null & undefined works same
+function reset(){
+ 
+  localStorage.removeItem('score');
+  alert("Score is reset");
+}
+function ShowScore(){
+   alert(`
+Win :${score.win}
+Lose :${score.lose}
+Tie :${score.ties}`);
 }
 function RandomiseNumber(){
   let choice;
@@ -55,6 +73,7 @@ function RandomiseNumber(){
     else if(result=='Tie'){
       score.ties+=1;
     }
+    localStorage.setItem('score', JSON.stringify(score));
     alert(`
 You pick:${playerMove}
 Computer pick :${computerMove}
